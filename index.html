@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        
+        .column {
+            display: flex;
+            flex-direction: column;
+            margin-right: 20px;
+        }
+        
+        .input-group {
+            margin-bottom: 10px;
+        }
+        
+        .input-group label {
+            margin-bottom: 5px;
+        }
+        
+        .input-group input {
+            padding: 5px;
+            width: 200px;
+        }
+        
+        .output {
+            margin-top: 20px;
+        }
+        
+        .output label {
+            font-weight: bold;
+        }
+        
+        .output span {
+            font-style: italic;
+        }
+        
+        .submit-button {
+            padding: 10px 20px;
+            background-color: blue;
+            border-radius: 7px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="column">
+            <div class="input-group">
+                <label for="input1">Input 1:</label>
+                <input type="text" id="input1">
+            </div>
+            <div class="input-group">
+                <label for="input2">Input 2:</label>
+                <input type="text" id="input2">
+            </div>
+            <button class="submit-button" onclick="submitForm()">Submit</button>
+        </div>
+        <div class="column">
+            <div class="output">
+                <label>Output:</label>
+                <span id="output"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            var input1 = document.getElementById('input1').value;
+            var input2 = document.getElementById('input2').value;
+            
+            // Lakukan pemrosesan atau pengolahan data di sini
+            var output = input1 + ' ' + input2;
+            
+            document.getElementById('output').textContent = output;
+        }
+    </script>
+</body>
+</html>
