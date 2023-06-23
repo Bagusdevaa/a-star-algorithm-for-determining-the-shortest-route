@@ -1,91 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>A-star Algorithm</title>
     <style>
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        
+        body {
             font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
         }
         
-        .column {
-            display: flex;
-            flex-direction: column;
-            margin-right: 20px;
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            padding: 20px;
         }
         
-        .input-group {
-            margin-bottom: 10px;
+        .form-group {
+            margin-bottom: 20px;
+            width: 50%;
         }
         
-        .input-group label {
+        .form-group label {
+            display: block;
             margin-bottom: 5px;
-        }
-        
-        .input-group input {
-            padding: 5px;
-            width: 200px;
-        }
-        
-        .output {
-            margin-top: 20px;
-        }
-        
-        .output label {
             font-weight: bold;
         }
         
-        .output span {
-            font-style: italic;
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         
         .submit-button {
-            padding: 10px 20px;
-            background-color: blue;
-            border-radius: 7px;
+            display: block;
+            width: 30%;
+            padding: 10px;
+            background-color: #4CAF50;
             color: white;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
         }
         
         .submit-button:hover {
             background-color: #45a049;
         }
+        
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="column">
-            <div class="input-group">
-                <label for="input1">Input 1:</label>
-                <input type="text" id="input1">
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
             </div>
-            <div class="input-group">
-                <label for="input2">Input 2:</label>
-                <input type="text" id="input2">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address">
             </div>
-            <button class="submit-button" onclick="submitForm()">Submit</button>
-        </div>
-        <div class="column">
-            <div class="output">
-                <label>Output:</label>
-                <span id="output"></span>
-            </div>
-        </div>
+            <input type="submit" value="Submit" class="submit-button">
+        </form>
+        <div class="output" id="output"></div>
     </div>
 
     <script>
-        function submitForm() {
-            var input1 = document.getElementById('input1').value;
-            var input2 = document.getElementById('input2').value;
-            
-            // Lakukan pemrosesan atau pengolahan data di sini
-            var output = input1 + ' ' + input2;
-            
-            document.getElementById('output').textContent = output;
-        }
+        const form = document.querySelector('form');
+        const outputDiv = document.getElementById('output');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            // Mendapatkan nilai input dari form
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            // Menampilkan output di dalam div output
+            outputDiv.innerText = `Name: ${name}\nEmail: ${email}`;
+        });
     </script>
 </body>
 </html>
